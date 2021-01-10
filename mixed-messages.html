@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codecademy Mixed-Messages Project</title>
+    <meta charset="set utf-8" lang="en">
+    <meta name="author" content="Kathy Chapman">
+    <meta name="description" content="Codecademy's Mixed-Messages Project. This page features a beautiful cat themed image, and a gentle pastel colour palette; to enjoy translating a set of generated messages randomly into cat. ">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Lustria&display=swap" rel="stylesheet"> <!--google fonts -->
+    <link href="Mixed-Messages.css" rel="stylesheet" type="text/CSS"> <!-- css components -->
+  </head>
+
+  <body> <!--make responsive mobile and tablet etc, make functions work, button not clickable for some reason, push onto git, edit the readme file so it looks good too :) -->
+    <div id="headings">
+      <h1 id="mainHeading">Random Cat Message Generator</h1>
+      <h3>The purrfect cat is waiting for you!</h3>
+      <p>See what they have to say</p>
+    </div>
+    <div id="catImages">
+      <img src="OMUMAO0.jpg" alt="pictures of cute cats">
+      <div class="messageBlocks">
+        <p id="catMessage">Cat's message</p>
+        <p id="humanMessage">Humans's message</p>
+      </div>
+    </div>
+    <div>
+      <p>Add a name and click the button to get started</p>
+      <input id="inputName" type="text" name="catsName" placeholder="Snowy">
+    </div>
+    <div id="messageBtn">
+      <button onclick="myfunction()">Meow</button> <!-- button will run the js and generate the messages -->
+    </div>
+    <div id="credits">
+      <p>Image by: <a href="https://www.freepik.com/vectors/hand">Hand vector created by terdpongvector - www.freepik.com</a></p>
+    </div>
+
+    <!--Javascript forumla below make sure the link works-->
+    <script type="text/javascript" href="Mixed-Messages.js"></script>
+    <script>
+
+      let myInput = () => {
+        let input = document.getElementById("inputName");
+
+        if (input === "") {
+          return  false//check if anything is in there, test with regular expression in the future
+        }
+      }
+
+      let myfunction = () => {
+        if (myInput()) {
+
+        document.getElementByClass("messageBlocks").style.removeProperty="display"; //remove CSS styling so text displays
+            //load our js in somehow? refer to our js file
+        document.getElementById(catMessage).innerHTML = generateCatMsg(); //change the html to a cat message
+        document.getElementById(humanMessage).innerHTML = generateMsg(); //change the html to the human message
+        }
+
+        if (myInput() === false) {
+          return input.innerHTML = "Please add a proper cat name!";
+        }
+      }
+
+    </script>
+  </body>
+</html>
